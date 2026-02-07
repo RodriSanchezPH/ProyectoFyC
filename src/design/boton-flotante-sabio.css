@@ -1,13 +1,13 @@
 /* Imagen del Sabio */
 .sabio-imagen {
   position: fixed;
-  bottom: 100px;        /* ← Cambia aquí para mover arriba/abajo */
-  left: 800px;          /* ← Cambia aquí para mover izquierda/derecha */
+  bottom: 100px;
+  right: -50px;
   z-index: 999;
   animation: slideInLeft 0.5s ease-out;
 }
 .sabio-imagen img {
-  width: 450px;         /* ← Cambia aquí el tamaño */
+  width: 450px;
   height: auto;
   filter: drop-shadow(0 10px 20px rgba(0, 0, 0, 0.5));
 }
@@ -52,4 +52,66 @@
 /* aplicar la animación si la necesitas */
 .boton-flotante--entrar {
   animation: slideInLeft 0.5s ease-out;
+}
+
+/* ========== RESPONSIVE DESIGN ========== */
+
+/* Tablets */
+@media (max-width: 1024px) {
+  .sabio-imagen {
+    right: -100px;
+  }
+
+  .sabio-imagen img {
+    width: 350px;
+  }
+
+  .boton-flotante {
+    width: 60px;
+    height: 60px;
+    font-size: 1.8rem;
+  }
+}
+
+/* Celulares grandes */
+@media (max-width: 768px) {
+  .sabio-imagen {
+    bottom: 80px;
+    right: -120px;
+    display: none;
+  }
+
+  .sabio-imagen img {
+    width: 280px;
+  }
+
+  .boton-flotante {
+    bottom: 25px;
+    right: 20px;
+    width: 55px;
+    height: 55px;
+    font-size: 1.6rem;
+  }
+}
+
+/* Celulares pequeños */
+@media (max-width: 480px) {
+  .sabio-imagen {
+    display: none;
+  }
+
+  .boton-flotante {
+    bottom: 20px;
+    right: 15px;
+    width: 50px;
+    height: 50px;
+    font-size: 1.4rem;
+    box-shadow: 0 4px 12px rgba(230, 57, 70, 0.5);
+  }
+
+  .boton-flotante:hover,
+  .boton-flotante:focus {
+    transform: scale(1.1);
+    box-shadow: 0 6px 15px rgba(230, 57, 70, 0.7);
+  }
 }

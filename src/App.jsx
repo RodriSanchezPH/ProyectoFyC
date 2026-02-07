@@ -30,12 +30,13 @@ export default function App() {
         <div
           style={{
             position: "fixed",
-            bottom: "110px",
-            right: "30px",
+            bottom: "80px",
+            right: "20px",
             zIndex: 1000,
             display: "flex",
             alignItems: "flex-end",
-            gap: "20px",
+            gap: "15px",
+            maxWidth: "95vw",
           }}
         >
            <div className="sabio-imagen">
