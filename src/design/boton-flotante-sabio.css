@@ -2,7 +2,7 @@
 .sabio-imagen {
   position: fixed;
   bottom: 100px;
-  right: -50px;
+  right: 30px;
   z-index: 999;
   animation: slideInLeft 0.5s ease-out;
 }
@@ -59,11 +59,12 @@
 /* Tablets */
 @media (max-width: 1024px) {
   .sabio-imagen {
-    right: -100px;
+    bottom: 100px;
+    right: 10px;
   }
 
   .sabio-imagen img {
-    width: 350px;
+    width: 320px;
   }
 
   .boton-flotante {
@@ -76,8 +77,6 @@
 /* Celulares grandes */
 @media (max-width: 768px) {
   .sabio-imagen {
-    bottom: 80px;
-    right: -120px;
     display: none;
   }
 
