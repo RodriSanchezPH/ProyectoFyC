@@ -1,14 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap');
-
-/* ========== RESET GLOBAL ========== */
-* {
-  box-sizing: border-box;
-}
-
-html {
-  font-size: 16px;
-}
-
 /* ========== ESTILOS GENERALES ========== */
 body {
   margin: 0;
@@ -18,31 +8,9 @@ body {
   background: linear-gradient(135deg, #1a0b2e 0%, #2d1b3d 100%); /* ← Fondo bonito siempre */;
 }
 
+
 .app-container {
   padding: 20px;
   text-align: center;
   color: #222;
-}
-
-/* ========== RESPONSIVE BASE ========== */
-
-/* Tablets */
-@media (max-width: 1024px) {
-  html {
-    font-size: 15px;
-  }
-}
-
-/* Celulares grandes */
-@media (max-width: 768px) {
-  html {
-    font-size: 14px;
-  }
-}
-
-/* Celulares pequeños */
-@media (max-width: 480px) {
-  html {
-    font-size: 12px;
-  }
 } 

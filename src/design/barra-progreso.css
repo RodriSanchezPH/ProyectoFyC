@@ -12,7 +12,7 @@
   border: 2px solid #f4a261;
   box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
   backdrop-filter: blur(10px);
-  min-width: 300px;
+  min-width: 200px;
 }
 
 .barra-progreso-header {
@@ -79,7 +79,11 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 1300px;
+  /* width: 1300px;  <-- ELIMINADO: Causaba problemas en pantallas pequeñas */
+  width: 90%;
+  /* <-- NUEVO: Ancho relativo */
+  max-width: 800px;
+  /* <-- NUEVO: Tope máximo para desktop */
   background-color: rgba(0, 0, 0, 0.4);
   backdrop-filter: blur(8px);
   color: white;
@@ -93,125 +97,101 @@
 }
 
 @keyframes pulse {
-  0%, 100% {
+
+  0%,
+  100% {
     opacity: 1;
     transform: translate(-50%, -50%) scale(1);
   }
+
   50% {
     opacity: 0.8;
     transform: translate(-50%, -50%) scale(1.05);
   }
 }
 
-/* ========== RESPONSIVE DESIGN ========== */
-
-/* Tablets */
-@media (max-width: 1024px) {
-  .barra-progreso-container {
-    min-width: 250px;
-    padding: 12px 25px;
-    top: 65px;
-  }
-
-  .barra-progreso-titulo {
-    font-size: 12px;
-  }
-
-  .barra-progreso-stats {
-    font-size: 12px;
-  }
-
-  .barra-progreso-fill {
-    font-size: 10px;
-  }
-
-  .barra-progreso-reset {
-    padding: 5px 10px;
-    font-size: 10px;
-  }
-}
-
-/* Celulares grandes */
+/* ===== RESPONSIVE ===== */
 @media (max-width: 768px) {
   .barra-progreso-container {
-    min-width: 220px;
-    padding: 10px 20px;
-    top: 60px;
-    border-radius: 12px;
+    width: auto;
+    min-width: auto;
+    max-width: 45%;
+    /* Un poco más ancho que en móvil (50%) */
+    padding: 10px 12px;
+    /* Proporcional a 8px 10px */
+    top: 50px;
+    /* Proporcional a 40px */
+    right: 15px;
+    /* Proporcional a 5px */
+    left: auto;
+    transform: none;
   }
 
   .barra-progreso-titulo {
-    font-size: 11px;
+    font-size: 10px;
+    /* Proporcional a 8px */
+    margin-right: 8px;
   }
 
   .barra-progreso-stats {
     font-size: 10px;
-  }
-
-  .barra-progreso-background {
-    height: 18px;
-  }
-
-  .barra-progreso-fill {
-    font-size: 9px;
-  }
-
-  .barra-progreso-reset {
-    padding: 4px 8px;
-    font-size: 9px;
+    /* Proporcional a 8px */
   }
 
   .barra-progreso-completitud {
-    width: 90vw;
-    padding: 20px 30px;
-    font-size: 40px;
+    font-size: 14px;
+    /* Proporcional a 10px */
+    padding: 15px;
+    /* Proporcional a 10px */
+    width: 75%;
+    /* Proporcional a 70% */
+  }
+
+  .barra-progreso-reset {
+    font-size: 10px;
+    /* Proporcional a 8px */
+    padding: 5px 10px;
+    /* Proporcional a 4px 8px */
   }
 }
 
-/* Celulares pequeños */
+/* Celulares */
 @media (max-width: 480px) {
   .barra-progreso-container {
-    min-width: 90vw;
-    padding: 8px 15px;
-    top: 50px;
-    border-radius: 10px;
-    border-width: 1px;
-  }
-
-  .barra-progreso-header {
-    flex-direction: column;
-    gap: 5px;
-    align-items: flex-start;
-    margin-bottom: 8px;
+    width: auto;
+    /* Ajustado para que no ocupe un ancho fijo o porcentual grande */
+    min-width: auto;
+    max-width: 50%;
+    /* Limite para que no se extienda demasiado */
+    padding: 8px 10px;
+    top: 40px;
+    /* Debajo del navbar */
+    right: 5px;
+    /* ESQUINA DERECHA */
+    left: auto;
+    /* Anular el centrado left:50% */
+    transform: none;
+    /* Anular el transform translate */
   }
 
   .barra-progreso-titulo {
-    font-size: 9px;
+    font-size: 8px;
+    /* Un poco más legible que 5px */
+    margin-right: 5px;
   }
 
   .barra-progreso-stats {
-    font-size: 9px;
-  }
-
-  .barra-progreso-background {
-    height: 15px;
-  }
-
-  .barra-progreso-fill {
     font-size: 8px;
-  }
-
-  .barra-progreso-reset {
-    width: 100%;
-    padding: 6px;
-    font-size: 8px;
-    margin-top: 3px;
   }
 
   .barra-progreso-completitud {
-    width: 95vw;
-    padding: 15px 20px;
-    font-size: 28px;
-    border-radius: 15px;
+    font-size: 10px;
+    padding: 10px;
+    width: 70%;
+  }
+
+  .barra-progreso-reset {
+    font-size: 8px;
+    padding: 4px 8px;
   }
 }

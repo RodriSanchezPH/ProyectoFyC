@@ -1,0 +1,336 @@
+{
+    "objetos": [
+        {
+            "id": "linterna",
+            "nombre": "Linterna",
+            "icono": "🔦"
+        },
+        {
+            "id": "agua",
+            "nombre": "Botella de Agua",
+            "icono": "💧"
+        },
+        {
+            "id": "mapa",
+            "nombre": "Mapa",
+            "icono": "🗺️"
+        },
+        {
+            "id": "cuerda",
+            "nombre": "Cuerda",
+            "icono": "🪢"
+        },
+        {
+            "id": "silbato",
+            "nombre": "Silbato",
+            "icono": "📯"
+        },
+        {
+            "id": "comida",
+            "nombre": "Comida",
+            "icono": "🥪"
+        },
+        {
+            "id": "botiquin",
+            "nombre": "Botiquín",
+            "icono": "🩹"
+        },
+        {
+            "id": "abrigo",
+            "nombre": "Abrigo",
+            "icono": "🧥"
+        },
+        {
+            "id": "binoculares",
+            "nombre": "Binoculares",
+            "icono": "🔭"
+        },
+        {
+            "id": "paraguas",
+            "nombre": "Paraguas",
+            "icono": "☂️"
+        },
+        {
+            "id": "brujula",
+            "nombre": "Brújula",
+            "icono": "🧭"
+        },
+        {
+            "id": "cuchillo",
+            "nombre": "Navaja",
+            "icono": "🔪"
+        }
+    ],
+    "aventuras": [
+        {
+            "id": "montana",
+            "nombre": "Expedición a la Montaña",
+            "icono": "🏔️",
+            "imagen": "montana",
+            "descripcion": "Una emocionante aventura en las alturas. ¿Qué llevarás?",
+            "objetosRecomendados": [
+                "agua",
+                "abrigo",
+                "cuerda",
+                "linterna",
+                "botiquin"
+            ],
+            "desafios": [
+                {
+                    "id": 1,
+                    "titulo": "¡Está oscureciendo!",
+                    "descripcion": "El sol se oculta y el camino se vuelve difícil de ver. ¿Cómo iluminarás tu camino?",
+                    "imagen": "noche",
+                    "objetosUtiles": [
+                        "linterna"
+                    ],
+                    "mensajeExito": "¡Excelente! Tu linterna ilumina el sendero perfectamente.",
+                    "mensajeFallo": "Sin luz, tropiezas varias veces. Deberías haber traído una linterna.",
+                    "puntos": 15
+                },
+                {
+                    "id": 2,
+                    "titulo": "¡Hace mucho frío!",
+                    "descripcion": "La temperatura baja drásticamente en la cima. El viento es helado.",
+                    "imagen": "frio",
+                    "objetosUtiles": [
+                        "abrigo"
+                    ],
+                    "mensajeExito": "¡Qué alivio! Tu abrigo te mantiene calentito.",
+                    "mensajeFallo": "Tiemblas de frío todo el camino. Un abrigo hubiera sido útil.",
+                    "puntos": 15
+                },
+                {
+                    "id": 3,
+                    "titulo": "¡Un precipicio!",
+                    "descripcion": "Para seguir adelante debes descender por una pared rocosa.",
+                    "imagen": "precipicio",
+                    "objetosUtiles": [
+                        "cuerda"
+                    ],
+                    "mensajeExito": "¡Perfecto! Usas la cuerda para bajar con seguridad.",
+                    "mensajeFallo": "Sin cuerda, debes buscar otro camino muy largo.",
+                    "puntos": 20
+                },
+                {
+                    "id": 4,
+                    "titulo": "¡Tienes sed!",
+                    "descripcion": "Después de tanto caminar, tu cuerpo necesita hidratarse.",
+                    "imagen": "sed",
+                    "objetosUtiles": [
+                        "agua"
+                    ],
+                    "mensajeExito": "¡Ahhh! El agua te refresca y recuperas energía.",
+                    "mensajeFallo": "La sed te debilita. Siempre hay que llevar agua.",
+                    "puntos": 15
+                }
+            ],
+            "mensajeFinal": "La montaña enseña que quien se prepara, conquista las alturas."
+        },
+        {
+            "id": "bosque",
+            "nombre": "Aventura en el Bosque",
+            "icono": "🌲",
+            "imagen": "bosque",
+            "descripcion": "Un misterioso bosque lleno de sorpresas te espera.",
+            "objetosRecomendados": [
+                "brujula",
+                "silbato",
+                "agua",
+                "comida",
+                "botiquin"
+            ],
+            "desafios": [
+                {
+                    "id": 1,
+                    "titulo": "¡Te perdiste!",
+                    "descripcion": "Todos los árboles se ven iguales. ¿Cómo encontrarás el norte?",
+                    "imagen": "perdido",
+                    "objetosUtiles": [
+                        "brujula",
+                        "mapa"
+                    ],
+                    "mensajeExito": "¡Bien pensado! Encuentras la dirección correcta.",
+                    "mensajeFallo": "Caminas en círculos por horas. Una brújula te habría ayudado.",
+                    "puntos": 20
+                },
+                {
+                    "id": 2,
+                    "titulo": "¡Te separaste del grupo!",
+                    "descripcion": "No puedes ver ni escuchar a tus compañeros. ¿Cómo llamarás su atención?",
+                    "imagen": "solo",
+                    "objetosUtiles": [
+                        "silbato"
+                    ],
+                    "mensajeExito": "¡El silbato suena fuerte! Tu grupo te encuentra rápido.",
+                    "mensajeFallo": "Gritas pero nadie te oye. Un silbato habría sido mejor.",
+                    "puntos": 15
+                },
+                {
+                    "id": 3,
+                    "titulo": "¡Una rama te rasguñó!",
+                    "descripcion": "Una rama espinosa te hizo una herida en el brazo.",
+                    "imagen": "herida",
+                    "objetosUtiles": [
+                        "botiquin"
+                    ],
+                    "mensajeExito": "Limpias y vendas la herida. ¡Bien preparado!",
+                    "mensajeFallo": "La herida se ensucia. Un botiquín era necesario.",
+                    "puntos": 15
+                },
+                {
+                    "id": 4,
+                    "titulo": "¡Mucha hambre!",
+                    "descripcion": "Llevas horas caminando y tu estómago ruge.",
+                    "imagen": "hambre",
+                    "objetosUtiles": [
+                        "comida"
+                    ],
+                    "mensajeExito": "Tu sándwich te da energía para continuar.",
+                    "mensajeFallo": "El hambre te quita fuerzas. Siempre lleva algo de comer.",
+                    "puntos": 15
+                }
+            ],
+            "mensajeFinal": "El bosque nos recuerda: quien prevé los peligros, los supera."
+        },
+        {
+            "id": "playa",
+            "nombre": "Día en la Playa",
+            "icono": "🏖️",
+            "imagen": "playa",
+            "descripcion": "Sol, arena y mar. Pero toda aventura tiene sus desafíos.",
+            "objetosRecomendados": [
+                "agua",
+                "paraguas",
+                "comida",
+                "botiquin",
+                "silbato"
+            ],
+            "desafios": [
+                {
+                    "id": 1,
+                    "titulo": "¡El sol quema!",
+                    "descripcion": "El sol del mediodía es muy fuerte y no hay sombra cerca.",
+                    "imagen": "sol",
+                    "objetosUtiles": [
+                        "paraguas"
+                    ],
+                    "mensajeExito": "Tu paraguas te da sombra perfecta. ¡Qué alivio!",
+                    "mensajeFallo": "Te quemas un poco. Algo para cubrirte habría ayudado.",
+                    "puntos": 15
+                },
+                {
+                    "id": 2,
+                    "titulo": "¡Pisaste algo!",
+                    "descripcion": "Una concha afilada te cortó el pie en la arena.",
+                    "imagen": "cortada",
+                    "objetosUtiles": [
+                        "botiquin"
+                    ],
+                    "mensajeExito": "Limpias y cubres la herida correctamente.",
+                    "mensajeFallo": "La arena entra en la herida. Necesitabas un botiquín.",
+                    "puntos": 15
+                },
+                {
+                    "id": 3,
+                    "titulo": "¡Tu amigo está lejos!",
+                    "descripcion": "Tu amigo nada muy lejos y no escucha tus gritos.",
+                    "imagen": "lejos",
+                    "objetosUtiles": [
+                        "silbato"
+                    ],
+                    "mensajeExito": "¡El silbato funciona! Tu amigo regresa.",
+                    "mensajeFallo": "Tienes que ir a buscarlo. Un silbato era la solución.",
+                    "puntos": 20
+                },
+                {
+                    "id": 4,
+                    "titulo": "¡Sed después de nadar!",
+                    "descripcion": "Nadar abre el apetito de agua. El kiosco está muy lejos.",
+                    "imagen": "sed_playa",
+                    "objetosUtiles": [
+                        "agua"
+                    ],
+                    "mensajeExito": "Tu botella de agua te salva. ¡Bien pensado!",
+                    "mensajeFallo": "Pasas sed hasta volver. Siempre lleva agua.",
+                    "puntos": 15
+                }
+            ],
+            "mensajeFinal": "Hasta en la diversión, el prudente se prepara para todo."
+        },
+        {
+            "id": "ciudad",
+            "nombre": "Exploración Urbana",
+            "icono": "🏙️",
+            "imagen": "ciudad",
+            "descripcion": "La ciudad tiene sus propios desafíos. ¿Estás listo?",
+            "objetosRecomendados": [
+                "mapa",
+                "agua",
+                "comida",
+                "abrigo",
+                "botiquin"
+            ],
+            "desafios": [
+                {
+                    "id": 1,
+                    "titulo": "¡No conoces esta zona!",
+                    "descripcion": "Las calles son confusas y no reconoces el camino de regreso.",
+                    "imagen": "calles",
+                    "objetosUtiles": [
+                        "mapa",
+                        "brujula"
+                    ],
+                    "mensajeExito": "¡Tu mapa te muestra exactamente dónde estás!",
+                    "mensajeFallo": "Caminas perdido un buen rato. Un mapa habría ayudado.",
+                    "puntos": 20
+                },
+                {
+                    "id": 2,
+                    "titulo": "¡Empieza a llover!",
+                    "descripcion": "Nubes grises cubren el cielo y comienza un aguacero.",
+                    "imagen": "lluvia",
+                    "objetosUtiles": [
+                        "paraguas",
+                        "abrigo"
+                    ],
+                    "mensajeExito": "¡Te mantienes seco! Buena previsión.",
+                    "mensajeFallo": "Quedas empapado. El clima es impredecible.",
+                    "puntos": 15
+                },
+                {
+                    "id": 3,
+                    "titulo": "¡Es hora de almorzar!",
+                    "descripcion": "Los restaurantes están llenos y tu estómago vacío.",
+                    "imagen": "almuerzo",
+                    "objetosUtiles": [
+                        "comida"
+                    ],
+                    "mensajeExito": "Sacas tu comida y comes tranquilo en un parque.",
+                    "mensajeFallo": "Pasas hambre esperando. Traer comida era buena idea.",
+                    "puntos": 15
+                },
+                {
+                    "id": 4,
+                    "titulo": "¡Te tropezaste!",
+                    "descripcion": "Una baldosa suelta te hace caer y te raspas la rodilla.",
+                    "imagen": "caida",
+                    "objetosUtiles": [
+                        "botiquin"
+                    ],
+                    "mensajeExito": "Limpias y cubres la herida. ¡Siempre preparado!",
+                    "mensajeFallo": "La herida queda sucia hasta llegar a casa.",
+                    "puntos": 15
+                }
+            ],
+            "mensajeFinal": "En la ciudad o en el campo, la prudencia siempre es tu mejor compañera."
+        }
+    ],
+    "frasesPrudencia": [
+        "El prudente ve el peligro y se prepara",
+        "Pensar antes de actuar es de sabios",
+        "La preparación es la madre del éxito",
+        "Quien prevé, menos sufre",
+        "Más vale prevenir que lamentar"
+    ]
+}

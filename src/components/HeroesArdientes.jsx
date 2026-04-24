@@ -6,7 +6,7 @@ export default function HeroesArdientes() {
   const scrollRef = useRef(null);
   const [focusIndex, setFocusIndex] = useState(0);
   const [flippedCards, setFlippedCards] = useState({});
-  
+
   // 🎯 NUEVO: Estado para el filtro
   const [filtroVirtud, setFiltroVirtud] = useState("Todos");
 
@@ -14,8 +14,8 @@ export default function HeroesArdientes() {
   const virtudes = ["Todos", "Fortaleza", "Justicia", "Prudencia", "Templanza"];
 
   // 🎯 NUEVO: Héroes filtrados
-  const heroesFiltrados = filtroVirtud === "Todos" 
-    ? heroes 
+  const heroesFiltrados = filtroVirtud === "Todos"
+    ? heroes
     : heroes.filter(heroe => heroe.virtud === filtroVirtud);
 
   useEffect(() => {
@@ -64,34 +64,11 @@ export default function HeroesArdientes() {
 
   return (
     <>
-      <div
-        className="texto-contenido"
-        style={{
-          textAlign: "top",
-          color: "#fff",
-          textShadow: "5px 2px 8px rgba(0,0,0,0.7)",
-          paddingTop: "4px",
-        }}
-      >
-        <h1
-          style={{
-            fontFamily: '"Press Start 2P", cursive',
-            fontSize: "60px",
-            color: "#ffffffff",
-            textShadow: "4px 4px 0 #000",
-            marginBottom: "-5px",
-            letterSpacing: "3px",
-          }}
-        >
+      <div className="texto-contenido">
+        <h1 className="titulo-heroes">
           Héroes Ardientes
         </h1>
-        <h2
-          style={{
-            fontFamily: '"Press Start 2P", cursive',
-            fontSize: "20px",
-            color: "#f4a261",
-          }}
-        >
+        <h2 className="subtitulo-heroes">
           Descubre las historias inspiradoras de aquellos que encarnaron las virtudes en los momentos más desafiantes
         </h2>
       </div>
@@ -126,9 +103,8 @@ export default function HeroesArdientes() {
             heroesFiltrados.map((heroe, index) => (
               <div
                 key={heroe.id}
-                className={`hero-card ${index === focusIndex ? "focus" : ""} ${
-                  flippedCards[heroe.id] ? "is-flipped" : ""
-                }`}
+                className={`hero-card ${index === focusIndex ? "focus" : ""} ${flippedCards[heroe.id] ? "is-flipped" : ""
+                  }`}
                 onClick={() => toggleFlip(heroe.id)}
               >
                 <div className="card-inner">

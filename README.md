@@ -8,9 +8,9 @@
 
 El Viaje Ardiente es una experiencia web interactiva que combina:
 
-- 🗺️ **Mapa Interactivo de Virtudes**: Explora territorios que representan virtudes
-- ⚔️ **Galería de Héroes Ardientes**: Descubre personas inspiradoras con tarjetas 3D
-- 🧙‍♂️ **Chatbot Filosófico**: Conversa con "El Sabio del Camino" impulsado por Google Gemini AI
+- 🗺️ **Mapa Interactivo de Virtudes**: Explora territorios que representan virtudes y supera minijuegos formativos.
+- 🚦 **Desafíos de Virtud**: Supera pruebas prácticas (como el Semáforo de Impulsos o el Castillo de la Templanza) para dominar cada paso del camino.
+- ⚔️ **Galería de Héroes Ardientes**: Descubre personas inspiradoras con tarjetas interactivas.
 
 ---
 
@@ -18,15 +18,20 @@ El Viaje Ardiente es una experiencia web interactiva que combina:
 
 ### Frontend (React)
 - React 18 con Vite
-- Recharts para visualizaciones
-- CSS3 con animaciones 3D
-- Diseño responsive
+- React Router DOM
+- CSS3 puro, utilidades de diseño y Canvas 2D
+- Diseño responsive y mecánicas de interactividad
 
-### Backend (Python)
-- FastAPI
-- Google Gemini AI (gemini-2.0-flash)
-- RAG con textos personalizados
-- Uvicorn
+---
+
+## 🤖 Inteligencia Artificial en el Desarrollo
+
+Este proyecto ha sido desarrollado con la colaboración y asistencia de múltiples herramientas de Inteligencia Artificial de vanguardia:
+
+- **Antigravity (Google Gemini)**: Asistente principal para la arquitectura, programación lógica, diseño de componentes React y CSS.
+- **Claude Code**: Utilizado para flujos conversacionales enfocados en código, creación de planes de implementación y manejo de estructura.
+- **Arena AI**: Empleado para realizar consultas rápidas en internet, validaciones y resolución de problemas durante el desarrollo.
+- **Flow by Google Labs**: Motor de inteligencia artificial utilizado para generar los *assets* visuales (Pixel Art, fondos, sprites de avatares y elementos UI) que dan vida al proyecto.
 
 ---
 
@@ -34,106 +39,41 @@ El Viaje Ardiente es una experiencia web interactiva que combina:
 
 ### Prerrequisitos
 - Node.js 18+ y npm
-- Python 3.10+
-- API Key de Google Gemini ([obtener aquí](https://aistudio.google.com/app/apikey))
 
 ### 1. Clonar el repositorio
 ```bash
 git clone https://github.com/TU-USUARIO/FEYC.git
-cd FEYC
+cd feyc
 ```
 
-### 2. Backend (Python)
+### 2. Instalar y Ejecutar
+Desde la raíz del proyecto, ejecuta:
 ```bash
-cd backend
-
-# Crear entorno virtual
-python -m venv .venv
-
-# Activar entorno virtual
-# Windows:
-.venv\Scripts\activate
-# Linux/Mac:
-source .venv/bin/activate
-
 # Instalar dependencias
-pip install -r requirements.txt
-
-# Configurar variables de entorno
-cp .env.example .env
-# Edita .env y agrega tu GEMINI_API_KEY
-```
-
-### 3. Frontend (React)
-```bash
-# Desde la raíz del proyecto
 npm install
-```
 
----
-
-## ▶️ Ejecución
-
-### Iniciar Backend
-```bash
-cd backend
-# Activar entorno virtual primero
-.venv\Scripts\activate  # Windows
-# o
-source .venv/bin/activate  # Linux/Mac
-
-# Ejecutar servidor
-uvicorn main:app --reload
-```
-
-Backend disponible en: `http://127.0.0.1:8000`  
-Documentación API: `http://127.0.0.1:8000/docs`
-
-### Iniciar Frontend
-
-En otra terminal (desde la raíz):
-```bash
+# Iniciar servidor de desarrollo local
 npm run dev
 ```
 
-Frontend disponible en: `http://localhost:5173`
-
----
-
-## 🔑 Configurar API Key de Gemini
-
-1. Ve a [Google AI Studio](https://aistudio.google.com/app/apikey)
-2. Genera una API Key
-3. Crea `backend/.env`:
-```env
-   GEMINI_API_KEY=tu_api_key_aqui
-```
+Tu aplicación estará disponible en: `http://localhost:5173`
 
 ---
 
 ## 📂 Estructura del Proyecto
+```text
 FEYC/
-├── backend/                    # API con FastAPI
-│   ├── data/                   # Textos sobre virtudes (.txt)
-│   ├── modelo/                 # Modelos de embeddings (generados)
-│   ├── main.py                 # API principal
-│   ├── sabio_lector.py         # Lógica del chatbot + RAG
-│   ├── requirements.txt        # Dependencias Python
-│   ├── .env.example            # Template de configuración
-│   └── .env                    # Tu API Key (NO subir a Git)
-├── src/                        # Frontend React
-│   ├── components/             # Componentes React
-│   │   ├── HeroesArdientes.jsx
-│   │   ├── ChatbotSabio.jsx
-│   │   └── ...
-│   ├── data/                   # Datos estáticos
-│   │   └── heroes.js
-│   └── App.jsx                 # Componente principal
-├── public/                     # Archivos públicos
-├── .gitignore                  # Archivos ignorados por Git
-├── index.html                  # HTML principal
-├── package.json                # Dependencias Node
-├── vite.config.js              # Configuración Vite
+├── src/                        # Código fuente React
+│   ├── components/             # Componentes, minijuegos y vistas
+│   ├── data/                   # Información y configuración (JSON/JS)
+│   ├── assets/                 # Imágenes, sprites generados y audios
+│   ├── design/                 # Estilos CSS
+│   ├── App.jsx                 # Entrada y ruteador principal
+│   └── main.jsx                # Punto de anclaje de React
+├── public/                     # Archivos estáticos base
+├── index.html                  # Plantilla HTML
+├── package.json                # Configuración del paquete y dependencias
+├── vite.config.js              # Configuración del bundler
 └── README.md                   # Este archivo
 ```
 
@@ -141,136 +81,29 @@ FEYC/
 
 ## 🎨 Características Destacadas
 
-- ✨ **Scroll horizontal** en galería de héroes con tarjetas que rotan en 3D
-- 🎯 **Sistema de foco** automático en la tarjeta central
-- 🔄 **Hover effects** que amplían las tarjetas al pasar el cursor
-- 💬 **Chatbot inteligente** que combina IA con textos personalizados sobre virtudes
-- 🗺️ **Mapa clickeable** con seguimiento de progreso de virtudes visitadas
-- 📊 **Visualizaciones** matemáticas interactivas con Recharts
-- 🎭 **Animaciones suaves** y transiciones fluidas
-
----
-
-## 🧪 Pruebas
-
-### Probar el Backend
-
-Con el servidor corriendo, abre otra terminal:
-
-**Usando curl (Linux/Mac):**
-```bash
-curl -X POST "http://127.0.0.1:8000/preguntar" \
-  -H "Content-Type: application/json" \
-  -d '{"texto":"¿Qué es la valentía?"}'
-```
-
-**Usando PowerShell (Windows):**
-```powershell
-Invoke-WebRequest -Uri "http://127.0.0.1:8000/preguntar" `
-  -Method POST `
-  -Headers @{"Content-Type"="application/json"} `
-  -Body '{"texto":"¿Qué es la valentía?"}'
-```
-
-**O visita la documentación interactiva:**  
-`http://127.0.0.1:8000/docs`
+- ✨ **Videojuegos web incorporados**: Implementaciones desde cero de minijuegos usando Canvas API de HTML5 y Game Loops optimizados dentro de React.
+- 🎯 **Arte Retro Generativo**: Utilización de *assets* visuales de estilo retro generados con IA para crear un ambiente lúdico.
+- 🔄 **Progresiones Locales**: El avance del jugador se almacena de forma persistente a nivel de navegador utilizando `localStorage`.
+- 🎭 **Animaciones CSS Complejas**: Transiciones de fases, fade in/out suaves y *keyframes* elaborados para pulido visual.
 
 ---
 
 ## 🌐 Deploy en Producción
 
-### Backend → Render
+Dada su arquitectura 100% frontend (sin un servidor backend requerido), desplegar el proyecto es sumamente rápido. 
 
-1. Crea una cuenta en [Render](https://render.com)
-2. New → Web Service
-3. Conecta tu repositorio de GitHub
-4. Configuración:
-   - **Name**: `feyc-backend`
-   - **Root Directory**: `backend`
-   - **Runtime**: Python 3
-   - **Build Command**: `pip install -r requirements.txt`
-   - **Start Command**: `uvicorn main:app --host 0.0.0.0 --port $PORT`
-5. Variables de entorno:
-   - Agrega `GEMINI_API_KEY` con tu key
-6. Deploy
+### Deploy Automático con Vercel o Netlify
+1. Crea una cuenta gratuita en Vercel o Netlify.
+2. Vincula tu repositorio de GitHub.
+3. El motor detectará automáticamente que es un proyecto **Vite**.
+4. Haz clic en "Deploy". Se construirán los archivos estáticos listos para producción y tendrás un enlace global al instante.
 
-Tu backend estará en: `https://feyc-backend.onrender.com`
-
-### Frontend → Vercel
-
-1. Crea una cuenta en [Vercel](https://vercel.com)
-2. Import Project → Conecta tu repo
-3. Configuración:
-   - **Framework Preset**: Vite
-   - **Root Directory**: `./` (raíz)
-   - **Build Command**: `npm run build`
-   - **Output Directory**: `dist`
-4. Deploy
-
-Tu frontend estará en: `https://feyc.vercel.app`
-
-### Actualizar URL del backend en el frontend
-
-En tus archivos React (ej: `ChatbotSabio.jsx`), cambia:
-```javascript
-// Desarrollo
-const API_URL = "http://127.0.0.1:8000";
-
-// Producción
-const API_URL = "https://feyc-backend.onrender.com";
-```
-
-O mejor, usa variables de entorno en Vite:
-```javascript
-const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
-```
-
-Y crea `.env` en la raíz:
-```env
-VITE_API_URL=http://127.0.0.1:8000
-```
-
----
-
-## 🛠️ Scripts Disponibles
+### Build manual
+Si prefieres hostearlo por tu cuenta:
 ```bash
-# Frontend
-npm run dev          # Iniciar servidor de desarrollo
-npm run build        # Build para producción
-npm run preview      # Preview del build
-
-# Backend
-cd backend
-uvicorn main:app --reload         # Servidor con auto-reload
-uvicorn main:app --host 0.0.0.0   # Servidor accesible en red local
+npm run build
 ```
-
----
-
-## 🐛 Solución de Problemas
-
-### El backend no inicia
-```bash
-# Verifica que el entorno virtual esté activo
-# Deberías ver (.venv) al inicio de tu terminal
-
-# Reinstala dependencias
-pip install -r requirements.txt
-```
-
-### Error de API Key
-```bash
-# Verifica que backend/.env existe
-# Verifica que GEMINI_API_KEY está configurada
-# Verifica que la key es válida en Google AI Studio
-```
-
-### Frontend no se conecta al backend
-```bash
-# Verifica que el backend esté corriendo en http://127.0.0.1:8000
-# Verifica la URL en tu código React
-# Revisa la consola del navegador (F12) para errores CORS
-```
+Obtendrás una carpeta `/dist` lista para cualquier servidor web (Apache, Nginx, GitHub Pages, Firebase Hosting, etc.).
 
 ---
 
@@ -278,59 +111,30 @@ pip install -r requirements.txt
 
 ¿Quieres contribuir? ¡Genial!
 
-1. Fork el proyecto
-2. Crea una rama (`git checkout -b feature/NuevaCaracteristica`)
-3. Commit tus cambios (`git commit -m '✨ Agregar NuevaCaracteristica'`)
-4. Push a la rama (`git push origin feature/NuevaCaracteristica`)
+1. Haz un Fork al proyecto
+2. Crea tu propia rama (`git checkout -b feature/NuevaCaracteristica`)
+3. Haz un commit detallando tus mejoras (`git commit -m 'feat: Agregar minijuego de justicia'`)
+4. Sube los cambios a tu rama (`git push origin feature/NuevaCaracteristica`)
 5. Abre un Pull Request
 
 ---
 
 ## 📝 Licencia
 
-Este proyecto está bajo la Licencia MIT. Ver archivo `LICENSE` para más detalles.
+Este proyecto se distribuye bajo la Licencia MIT. Consulta el archivo `LICENSE` (si existe) para más información.
 
 ---
 
 ## 👤 Autor
 
 **Tu Nombre**
-- GitHub: [@TU-USUARIO](https://github.com/TU-USUARIO)
-- Email: tu-email@ejemplo.com
-
----
-
-## 🙏 Agradecimientos
-
-- 🤖 Google Gemini por la API de IA generativa
-- ⚛️ Comunidad de React y FastAPI
-- 📚 Filosofía clásica sobre virtudes y ética
-- 🎨 Inspiración en diseños modernos de UI/UX
+- GitHub: [Francisco235711](https://github.com/Francisco235711)
 
 ---
 
 ## 📊 Estado del Proyecto
 
 ![En Desarrollo](https://img.shields.io/badge/estado-en%20desarrollo-yellow)
-![Python](https://img.shields.io/badge/python-3.10+-blue)
-![React](https://img.shields.io/badge/react-18.x-61DAFB)
-![FastAPI](https://img.shields.io/badge/FastAPI-0.1-009688)
-![Gemini](https://img.shields.io/badge/Gemini-2.0-orange)
-
----
-
-## 🔮 Roadmap Futuro
-
-- [ ] Sistema de usuarios y progreso guardado
-- [ ] Más virtudes y contenido
-- [ ] Versión mobile mejorada
-- [ ] Integración con redes sociales
-- [ ] Modo oscuro
-- [ ] Soporte multiidioma
-- [ ] Tests automatizados
-
----
-
-⭐ **Si te gustó este proyecto, dale una estrella en GitHub!**
-
-💬 **¿Preguntas o sugerencias?** Abre un [Issue](https://github.com/TU-USUARIO/FEYC/issues)
+![React](https://img.shields.io/badge/React-18.x-61DAFB?logo=react)
+![Vite](https://img.shields.io/badge/Vite-Latest-646CFF?logo=vite)
+![Desarrollado con IA](https://img.shields.io/badge/AI%20Assisted-Google_Gemini-orange?logo=google)

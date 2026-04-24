@@ -8,11 +8,18 @@
   display: flex;
   gap: 20px;
   z-index: 1000;
-  background: rgba(0, 0, 0, 0.4); /* fondo semitransparente */
+  background: rgba(0, 0, 0, 0.4);
+  /* fondo semitransparente */
   padding: 10px 25px;
   border-radius: 30px;
   backdrop-filter: blur(6px);
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+
+  /* Flex wrap para evitar desbordamiento en pantallas muy angostas */
+  flex-wrap: wrap;
+  justify-content: center;
+  width: max-content;
+  max-width: 90%;
 }
 
 /* Botones del navbar */
@@ -21,6 +28,8 @@
   text-decoration: none;
   font-weight: 600;
   transition: all 0.3s ease;
+  white-space: nowrap;
+  /* Evitar que los textos se rompan feo */
 }
 
 .navbar a:hover {
@@ -33,52 +42,17 @@
   text-shadow: 0 0 8px rgba(233, 196, 106, 0.8);
 }
 
-/* ========== RESPONSIVE DESIGN ========== */
-
-/* Tablets */
-@media (max-width: 1024px) {
+/* ===== RESPONSIVE ===== */
+@media (max-width: 600px) {
   .navbar {
-    gap: 15px;
-    padding: 8px 20px;
-    top: 15px;
-  }
-
-  .navbar a {
-    font-size: 14px;
-  }
-}
-
-/* Celulares grandes */
-@media (max-width: 768px) {
-  .navbar {
-    gap: 10px;
-    padding: 6px 15px;
     top: 10px;
+    padding: 8px 15px;
+    gap: 15px;
     border-radius: 20px;
   }
 
   .navbar a {
-    font-size: 12px;
-    font-weight: 500;
-  }
-}
-
-/* Celulares pequeños */
-@media (max-width: 480px) {
-  .navbar {
-    gap: 8px;
-    padding: 5px 12px;
-    top: 8px;
-    border-radius: 15px;
-    background: rgba(0, 0, 0, 0.5);
-  }
-
-  .navbar a {
-    font-size: 10px;
-    font-weight: 500;
-  }
-
-  .navbar a:hover {
-    transform: scale(1.05);
+    font-size: 14px;
+    /* Un poco más chico */
   }
 }

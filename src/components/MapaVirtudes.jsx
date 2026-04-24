@@ -18,17 +18,9 @@ export default function MapaVirtudes() {
     4: IslaTemplanza,
   };
 
-  const posiciones = {
-    1: { top: "10%", left: "15%" },
-    2: { top: "10%", right: "7%" },
-    3: { bottom: "7%", left: "15%" },
-    4: { bottom: "7%", right: "7%" },
-  };
-
   const islas = virtudesData.map((virtud) => ({
     ...virtud,
     imagen: imagenes[virtud.id],
-    posicion: posiciones[virtud.id],
   }));
 
   const navigate = useNavigate();
@@ -49,9 +41,8 @@ export default function MapaVirtudes() {
       {islas.map((isla) => (
         <div
           key={isla.id}
-          className="isla-contenedor"
+          className={`isla-contenedor isla-${isla.id}`}
           onClick={() => setIslaSeleccionada(isla)}
-          style={{ ...isla.posicion }}
           onMouseEnter={(e) => {
             e.currentTarget.style.transform = "scale(1.1) translateY(-10px)";
             e.currentTarget.style.filter =
@@ -98,6 +89,24 @@ export default function MapaVirtudes() {
             </p>
 
             <div className="modal-botones">
+              <button
+                className="modal-boton modal-boton-desafio"
+                onClick={() => {
+                  const rutas = {
+                    1: "/fortaleza",
+                    2: "/justicia",
+                    3: "/prudencia",
+                    4: "/templanza"
+                  };
+                  navigate(rutas[islaSeleccionada.id]);
+                }}
+                style={{
+                  background: islaSeleccionada.colorBoton,
+                  boxShadow: `0 4px 8px ${islaSeleccionada.colorBoton}60`,
+                }}
+              >
+                Iniciar Desafío 
+              </button>
               <button
                 onClick={() => setIslaSeleccionada(null)}
                 className="modal-boton modal-boton-cerrar"

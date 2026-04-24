@@ -18,6 +18,7 @@
   text-shadow: 5px 2px 8px rgba(0, 0, 0, 0.7);
   padding-top: 4px;
   margin-top: -100px;
+  pointer-events: none;
 }
 
 .mapa-titulo {
@@ -27,6 +28,7 @@
   text-shadow: 4px 4px 0 #000;
   margin-bottom: -5px;
   letter-spacing: 3px;
+  pointer-events: auto;
 }
 
 /* Islas interactivas */
@@ -37,6 +39,27 @@
   cursor: pointer;
   z-index: 10;
   transition: all 0.3s ease;
+}
+
+/* POSICIONES DESKTOP (Originales) */
+.isla-1 {
+  top: 10%;
+  left: 15%;
+}
+
+.isla-2 {
+  top: 10%;
+  right: 7%;
+}
+
+.isla-3 {
+  bottom: 7%;
+  left: 15%;
+}
+
+.isla-4 {
+  bottom: 7%;
+  right: 7%;
 }
 
 .isla-imagen {
@@ -63,6 +86,8 @@
   justify-content: center;
   z-index: 1000;
   animation: fadeIn 0.3s ease;
+  padding: 20px;
+  box-sizing: border-box;
 }
 
 .modal-contenedor {
@@ -71,9 +96,12 @@
   border: 3px solid #e0bc04;
   text-align: center;
   color: white;
-  max-width: 600px;
+  max-width: 500px;
+  width: 90%;
   box-shadow: 0 10px 40px rgba(0, 0, 0, 0.5);
   animation: slideIn 0.4s ease;
+  max-height: 90vh;
+  overflow-y: auto;
 }
 
 .modal-titulo {
@@ -104,9 +132,11 @@
 /* Botones del modal */
 .modal-botones {
   display: flex;
-  gap: 20px;
+  flex-direction: row;
+  gap: 15px;
   justify-content: center;
   flex-wrap: wrap;
+  white-space: nowrap;
 }
 
 .modal-boton {
@@ -131,8 +161,31 @@
 }
 
 .modal-boton-desafio {
-  /* background dinámico desde: islaSeleccionada.colorBoton */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  background: linear-gradient(135deg, #f4a261 0%, #e76f51 100%);
+  box-shadow: 0 4px 8px rgba(244, 162, 97, 0.4);
+  animation: pulse 2s infinite;
+  position: relative;
+  left: 20px;
+  bottom: -25px;
+}
+
+.modal-boton-desafio:hover {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(244, 162, 97, 0.6);
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(1);
+  }
+
+  50% {
+    transform: scale(1.05);
+  }
+
+  100% {
+    transform: scale(1);
+  }
 }
 
 /* Animaciones */
@@ -140,6 +193,7 @@
   from {
     opacity: 0;
   }
+
   to {
     opacity: 1;
   }
@@ -150,177 +204,127 @@
     opacity: 0;
     transform: scale(0.9) translateY(-20px);
   }
+
   to {
     opacity: 1;
     transform: scale(1) translateY(0);
   }
 }
 
-/* ========== RESPONSIVE DESIGN ========== */
+/* ===== RESPONSIVE ===== */
 
-/* Tablets (768px - 1024px) */
 @media (max-width: 1024px) {
   .mapa-titulo {
     font-size: 40px;
-    letter-spacing: 2px;
-  }
-
-  .isla-contenedor {
-    width: 220px;
-    height: 220px;
-  }
-
-  .isla-imagen {
-    width: 600px;
-    height: 600px;
-    left: -190px;
-    top: -190px;
-  }
-
-  .modal-contenedor {
-    max-width: 500px;
-    padding: 30px;
-  }
-
-  .modal-imagen {
-    width: 250px;
-    height: 150px;
-  }
-
-  .modal-descripcion {
-    font-size: 14px;
-    padding: 0 15px;
   }
 }
 
-/* Celulares grandes (480px - 768px) */
 @media (max-width: 768px) {
-  .mapa-titulo {
-    font-size: 28px;
-    letter-spacing: 1px;
-  }
-
-  .mapa-contenido {
-    margin-top: -50px;
-  }
-
-  .isla-contenedor {
-    width: 150px;
-    height: 150px;
-  }
-
-  .isla-imagen {
-    width: 400px;
-    height: 400px;
-    left: -125px;
-    top: -125px;
-  }
-
-  .modal-overlay {
-    padding: 20px;
-  }
-
-  .modal-contenedor {
-    max-width: 90vw;
-    padding: 25px;
-    border-radius: 15px;
-  }
-
-  .modal-titulo {
-    font-size: 18px;
-    margin-bottom: 15px;
-  }
-
-  .modal-imagen {
-    width: 200px;
-    height: 120px;
-    margin: 15px 0;
-  }
-
-  .modal-descripcion {
-    font-size: 13px;
-    line-height: 1.6;
-    margin-bottom: 20px;
-    padding: 0 10px;
-  }
-
-  .modal-botones {
-    gap: 10px;
-  }
-
-  .modal-boton {
-    padding: 10px 20px;
-    font-size: 14px;
-  }
-}
-
-/* Celulares pequeños (hasta 480px) */
-@media (max-width: 480px) {
   .mapa-fondo {
-    height: 100dvh;
-  }
-
-  .mapa-titulo {
-    font-size: 20px;
-    letter-spacing: 0.5px;
-    text-shadow: 2px 2px 0 #000;
+    flex-direction: column;
+    justify-content: flex-start;
+    padding-top: 100px;
+    /* Espacio para título y navbar */
+    overflow-y: auto;
+    /* Scroll vertical permitido */
+    height: 100vh;
   }
 
   .mapa-contenido {
-    margin-top: -30px;
-    padding-top: 0;
+    margin-top: 0;
+    margin-bottom: 20px;
+    z-index: 20;
+    /* Asegurar que el título quede arriba */
+    position: relative;
   }
 
+  .mapa-titulo {
+    font-size: 24px;
+    margin-top: 0;
+  }
+
+  /* Resetear posiciones absolutas para hacerlas relativas */
   .isla-contenedor {
-    width: 100px;
-    height: 100px;
+    position: relative;
+    top: auto !important;
+    left: auto !important;
+    right: auto !important;
+    bottom: auto !important;
+
+    /* Layout vertical */
+    margin: 100px auto;
+    /* Superponer un poco verticalmente para ahorrar espacio */
+    transform: scale(1);
+    transform-origin: center center;
+    width: 300px;
+    height: 250px;
+    /* Reducir altura contenedor para mejor stack */
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 
+  /* Ajustar las imágenes dentro de los contenedores relativos */
   .isla-imagen {
-    width: 280px;
-    height: 280px;
-    left: -90px;
-    top: -90px;
+    left: auto;
+    top: auto;
+    transform: scale(1);
+    /* Resetear transformaciones extra */
   }
 
-  .modal-overlay {
-    padding: 10px;
+  /* Ajuste específico para separar un poco más si se ven muy pegadas */
+  .isla-1 {
+    z-index: 5;
+    margin-top: 0;
   }
 
+  .isla-2 {
+    z-index: 4;
+  }
+
+  .isla-3 {
+    z-index: 3;
+  }
+
+  .isla-4 {
+    z-index: 2;
+    margin-bottom: 150px;
+    /* Espacio final */
+  }
+
+  /* Modal responsive (se mantiene igual que antes) */
   .modal-contenedor {
-    max-width: 95vw;
     padding: 20px;
-    border-radius: 12px;
-    border: 2px solid #e0bc04;
   }
 
   .modal-titulo {
     font-size: 16px;
-    margin-bottom: 10px;
   }
 
   .modal-imagen {
-    width: 150px;
-    height: 100px;
-    margin: 10px 0;
+    width: 200px;
+    height: 140px;
   }
 
   .modal-descripcion {
-    font-size: 12px;
-    line-height: 1.5;
-    margin-bottom: 15px;
-    padding: 0 5px;
-    text-align: left;
+    font-size: 14px;
+    padding: 0;
+  }
+}
+
+@media (max-width: 480px) {
+  .mapa-titulo {
+    font-size: 30px;
   }
 
-  .modal-botones {
-    gap: 8px;
-    flex-direction: column;
+  .isla-contenedor {
+    transform: scale(1);
+    margin: 100px auto;
   }
 
-  .modal-boton {
-    width: 100%;
-    padding: 12px;
-    font-size: 13px;
+  .modal-boton-desafio{
+    position: relative;
+    left: 70px;
+    bottom: -20px;
   }
 }

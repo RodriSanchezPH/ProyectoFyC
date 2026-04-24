@@ -31,43 +31,46 @@ export default function BarraProgreso() {
   if (location.pathname !== "/mapa") return null;
   return (
     <>
-    <div className="barra-progreso-container">
-      <div className="barra-progreso-header">
-        <span className="barra-progreso-titulo">
-          🏆 Progreso
-        </span>
-        <span className="barra-progreso-stats" >
-          {completadas.length}/{virtudesData.length}
-        </span>
-      </div>
-
-      {/* Barra de progreso */}
-      <div className="barra-progreso-background">
-        <div className="barra-progreso-fill"
-          style={{
-            width: `${porcentaje}%`}}
-        >
-          {porcentaje > 0 && `${Math.round(porcentaje)}%`}
+      <div className="barra-progreso-container">
+        <div className="barra-progreso-header">
+          <span className="barra-progreso-titulo">
+            🏆 Progreso
+          </span>
+          <span className="barra-progreso-stats" >
+            {completadas.length}/{virtudesData.length}
+          </span>
         </div>
-      </div>
+
+        {/* Barra de progreso */}
+        <div className="barra-progreso-background">
+          <div className="barra-progreso-fill"
+            style={{
+              width: `${porcentaje}%`
+            }}
+          >
+            {porcentaje > 0 && `${Math.round(porcentaje)}%`}
+          </div>
+        </div>
 
         {/*borrar progreso */}
         <button
-         onClick={() => {
-         localStorage.removeItem("virtudes-completadas");
-        setCompletadas([]);
-  }}
-         className="barra-progreso-reset">
-  x
-        </button>      
-    </div>
-            {/* Mensaje de completitud */}
-{completadas.length === virtudesData.length && (
-  <div className="barra-progreso-completitud"> 
-    🌟El verdadero Héroe está dentro de ti🌟
-  </div>
-)}
+          onClick={() => {
+            localStorage.removeItem("virtudes-completadas");
+            localStorage.removeItem("prudencia-progreso", "justicia-progreso", "templanza-progreso", "fortaleza-progreso"); // Borrar progreso de Prudencia
+            setCompletadas([]);
+            window.dispatchEvent(new Event("storage")); // Notificar cambios
+          }}
+          className="barra-progreso-reset">
+          x
+        </button>
+      </div>
+      {/* Mensaje de completitud */}
+      {completadas.length === virtudesData.length && (
+        <div className="barra-progreso-completitud">
+          🌟El verdadero Héroe está dentro de ti🌟
+        </div>
+      )}
 
-</>
+    </>
   );
 }
